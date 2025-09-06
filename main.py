@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import sentiment
+from routers import sentiment,description
 
 app = FastAPI(title="Sentiment Analysis API")
 
@@ -15,3 +15,5 @@ app.add_middleware(
 
 # ✅ Include Sentiment Router
 app.include_router(sentiment.router, prefix="/sentiment", tags=["Sentiment Analysis"])
+app.include_router(description.router, prefix="/description", tags=["AI Description Generator"])
+
